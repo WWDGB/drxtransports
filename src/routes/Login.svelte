@@ -15,7 +15,7 @@
         if(response.status === 200){
           const jwtToken = response.data.token; // Store the received token
           token.set(jwtToken)
-          axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+          axios.defaults.headers.common['Authorization'] = `Bearer ${jwtToken}`;
           isLoggedIn = true;
           isRedirecting = true;
           goto('homepage');
