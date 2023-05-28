@@ -165,7 +165,7 @@
             <label for="address">Enter the new address:</label>
             <input type="text" id="address" bind:value={newLocationAddress} required>
             
-			<Button color="green" style="margin-right: 0.5rem; margin-top: 0.5rem; padding: 0.5rem 1rem; font-size: 0.8rem;">Save</Button>
+			<Button color="green" style="margin-right: 0.5rem; margin-top: 0.5rem; padding: 0.5rem 1rem; font-size: 0.8rem" on:click={addNewLocation}>Save</Button>
         </form>
     {/if}
     </Popover>

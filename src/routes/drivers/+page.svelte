@@ -100,7 +100,7 @@
       <label for="email">Email:</label>
       <input type="email" id="email" bind:value={email} required />
 
-      <Button color="green" style="margin-right: 0.5rem; margin-top: 0.5rem; padding: 0.5rem 1rem; font-size: 0.8rem;">Save</Button>
+      <Button color="green" style="margin-right: 0.5rem; margin-top: 0.5rem; padding: 0.5rem 1rem; font-size: 0.8rem" on:click={addNewDriver}>Save</Button>
     </form>
     {/if}
   </Popover>
