@@ -1,5 +1,5 @@
 <script>
-    import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
+    import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, Button, Input } from 'flowbite-svelte';
     import Logo from './drxlogo.svg'
 
 </script>
@@ -13,6 +13,10 @@
       />
       
     </NavBrand>
+    <div class="flex md:order-2">
+      <Button color = "blue" size="sm">Logout</Button>
+      <NavHamburger on:click={toggle} />
+    </div>
     <NavHamburger on:click={toggle} />
     <NavUl {hidden}>
       <NavLi href="/addlocations">Locations</NavLi>
