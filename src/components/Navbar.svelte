@@ -21,7 +21,6 @@
     <NavUl {hidden}>
       <NavLi href="/addlocations">Locations</NavLi>
       <NavLi href="/drivers">Drivers</NavLi>
-      <NavLi href="/addemployees">Employees</NavLi>
       <NavLi href="/makereservation">Make reservation</NavLi>
       <NavLi href="/transports">Transports</NavLi>
     </NavUl>

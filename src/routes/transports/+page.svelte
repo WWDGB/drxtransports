@@ -1,5 +1,6 @@
 <script>
 	import Navbar from "../../components/Navbar.svelte";
+	import { Button } from "flowbite-svelte";
 </script>
 
 <Navbar />
@@ -29,14 +30,6 @@
 						<div
 							class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
 						>
-							<svg
-								class="fill-current h-4 w-4"
-								xmlns="http://www.w3.org/2000/svg"
-								viewBox="0 0 20 20"
-								><path
-									d="M14.707 7.293a1 1 0 00-1.414 0L10 10.586l-3.293-3.293a1 1 0 10-1.414 1.414l4 4a1 1 0 001.414 0l4-4a1 1 0 000-1.414z"
-								/></svg
-							>
 						</div>
 					</div>
 				</div>
@@ -61,25 +54,13 @@
 						<div
 							class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
 						>
-							<svg
-								class="fill-current h-4 w-4"
-								xmlns="http://www.w3.org/2000/svg"
-								viewBox="0 0 20 20"
-								><path
-									d="M14.707 7.293a1 1 0 00-1.414 0L10 10.586l-3.293-3.293a1 1 0 10-1.414 1.414l4 4a1 1 0 001.414 0l4-4a1 1 0 000-1.414z"
-								/></svg
-							>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="text-center mt-4">
-			<button
-				class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-			>
-				Generate PDF
-			</button>
+			<Button color="blue" style="margin-right: 0.5rem">Generate PDF</Button>
 		</div>
 	</div>
 </div>

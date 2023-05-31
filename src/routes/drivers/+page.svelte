@@ -47,6 +47,26 @@
         }
     }
 
+    async function deleteDriver(driverId){
+      try{
+        await axios.delete(`/driver/${driverId}`);
+        drivers = drivers.filter(driver => driver.id !== driverId);
+        getDrivers();
+      }catch(error){
+        console.error(error);
+      }
+    }
+
+    async function updateDriver(driver){
+      try{
+        const {driverId, firstName, lastName, phoneNumber, email} = driver;
+        await axios.put(`/driver/${driver.driverId}`, {driver, firstName: driver.firstName, lastName: driver.lastName, phoneNumber: driver.phoneNumber, email: driver.email});
+        driver.isEditing = false;
+      }catch(error){
+        console.error(error);
+      }
+    }
+
     onMount(() => {
         getDrivers();
     })
@@ -54,29 +74,40 @@
 
 <Navbar />
 <div class="w-2/3 mx-auto bg-gray-300 rounded-lg">
-      <Table striped={true}>
-        <TableHead>
-          <TableHeadCell>First Name</TableHeadCell>
-          <TableHeadCell>Last Name</TableHeadCell>
-          <TableHeadCell>Phone Number</TableHeadCell>
-          <TableHeadCell>Email</TableHeadCell>
-          <TableHeadCell>
-            <span class="sr-only">Edit</span>
-          </TableHeadCell>
-        </TableHead>
-        <TableBody class="divide-y">
-          {#each drivers as driver}
-            <TableBodyRow>
+  <Table striped={true}>
+    <TableHead>
+      <TableHeadCell>First Name</TableHeadCell>
+      <TableHeadCell>Last Name</TableHeadCell>
+      <TableHeadCell>Phone Number</TableHeadCell>
+      <TableHeadCell>Email</TableHeadCell>
+    </TableHead>
+      <TableBody class="divide-y">
+        {#each drivers as driver}
+          <TableBodyRow>
+            {#if driver.isEditing}
+              <TableBodyCell>
+                <input type="text" class="border border-gray-300 px-2 py-1 rounded" bind:value={driver.firstName} />
+                <input type="text" class="border border-gray-300 px-2 py-1 rounded" bind:value={driver.lastName} />
+                <input type="text" class="border border-gray-300 px-2 py-1 rounded" bind:value={driver.phoneNumber} />
+                <input type="text" class="border border-gray-300 px-2 py-1 rounded" bind:value={driver.email} />
+              </TableBodyCell>
+              <TableBodyCell>
+                <div class="flex justify-end">
+                  <Button color = "green" style="margin-right: 0.5rem" on:click={() => { updateDriver(driver); driver.isEditing = false; }}>Save</Button>
+                </div>
+              </TableBodyCell>
+            {:else}
               <TableBodyCell>{driver.firstName}</TableBodyCell>
               <TableBodyCell>{driver.lastName}</TableBodyCell>
               <TableBodyCell>{driver.phoneNumber}</TableBodyCell>
               <TableBodyCell>{driver.email}</TableBodyCell>
               <TableBodyCell>
                 <div class = "flex justify-end">
-                  <Button color = "blue" style="margin-right: 0.5rem;">Edit</Button>
-                  <Button color = "red" style="margin-right: 0.5rem;">Delete</Button>
+                  <Button color = "blue" style="margin-right: 0.5rem;"on:click = {() => { driver.isEditing = true; }}>Edit</Button>
+                  <Button color="red" style="margin-right: 0.5rem;" on:click={() => deleteDriver(driver.driverId)}>Delete</Button>
                 </div>
               </TableBodyCell>
+            {/if}
             </TableBodyRow>
           {/each}
         </TableBody>

@@ -125,7 +125,7 @@
 			  </TableBodyCell>
 			  <TableBodyCell>
 				<div class="flex justify-end">
-				  <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded mx-1" on:click={() => { updateLocation(location); location.isEditing = false; }}>Save</button>
+				  <Button color = "green" style="margin-right: 0.5rem" on:click={() => { updateLocation(location); location.isEditing = false; }}>Save</Button>
 				</div>
 			  </TableBodyCell>
 			{:else}
